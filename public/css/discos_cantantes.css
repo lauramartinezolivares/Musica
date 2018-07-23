@@ -1,0 +1,68 @@
+body{
+    background-image: url('https://images.pexels.com/photos/9137/night-vintage-music-bokeh.jpg?auto=compress&cs=tinysrgb&h=750&w=1260');
+    background-size: cover;
+}
+
+h1{
+    color: yellow;
+    font-size: 60px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.discos, .cantantes{
+    margin: auto;
+    padding: 10px;
+    text-align: center;
+    width: 50%;
+}
+.content{
+    background-color: whitesmoke;
+}
+table, th, td {
+    border: 1px solid rgb(185, 185, 185);
+    border-collapse: collapse;
+    padding: 15px;
+    text-align: left;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.editar_eliminar{
+    border: none;
+    background-color: whitesmoke;
+}
+
+input{
+    width: 60%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+.form-label{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    padding-right: 10px;
+}
+.btn-submit{
+    width: 50%;
+    background-color: rgb(112, 100, 77);
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-add{
+    width: 30%;
+    background-color: rgb(112, 100, 77);
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
