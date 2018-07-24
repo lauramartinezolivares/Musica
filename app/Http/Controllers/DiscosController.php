@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use DB;
+use App\Cantantes;
+use Session;
 use Illuminate\Http\Request;
 
 class DiscosController extends Controller
@@ -13,10 +16,8 @@ class DiscosController extends Controller
      */
     public function index()
     {
-
         $discos=\App\Discos::all();
         return view('discos',compact('discos'));
-        
     }
 
     /**
@@ -26,10 +27,14 @@ class DiscosController extends Controller
      */
     public function create()
     {
-        return view('discos');
+        $disco = new \App\Discos;
+        return view('añadir-disco',[
+            'discos' => $disco,
+        ]);
     }
 
     /**
+     * 
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -37,9 +42,20 @@ class DiscosController extends Controller
      */
     public function store(Request $request)
     {
-        $discos = Discos::create($request->all());
+        $cantante_nombre = $request->get('cantante_nombre');
+        $cantante_id = DB::table('cantantes')->where('nombre', $cantante_nombre)->first();
+       
+        if($cantante_id === null){
+            return redirect('discos')->with('warning','Este cantante no figura en la base de datos');
+        }
+    
+        $disco = new \App\Discos;
+        $disco->cantantes_id=$cantante_id->id;
+        $disco->nombre=$request->get('nombre');
+        $disco->genero=$request->get('genero');
+        $disco->save();
 
-        return response()->json($discos);
+        return redirect('discos');
     }
 
     /**
@@ -48,9 +64,19 @@ class DiscosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Disco $discos)
+    public function show($id)
     {
-        return response()->json($discos);    }
+        $discos = DB::table('discos')->where('cantantes_id', $id)->get();
+        $cantante_nombre = DB::table('cantantes')->select('nombre')->where('id', $id)->first();
+        
+       /* if(empty($discos)){
+            return redirect('cantantes')->with('warning','Este cantante todavia no tiene discos');  
+        }else{}*/
+        return view('discos_por_cantante',[
+            'discos' => $discos,
+            'cantante' => $cantante_nombre
+        ]);
+}
 
     /**
      * Show the form for editing the specified resource.

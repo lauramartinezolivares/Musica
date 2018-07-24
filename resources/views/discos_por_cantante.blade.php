@@ -8,29 +8,21 @@
 </head>
 <body>
     <a href="/" class="button btn-home"><i class="fa fa-home"></i></a>
+    <a href="/cantantes" class="button btn-home"><i class="fa fa-backward"></i></a>
     <div class="cantantes">
-        <h1>CANTANTES</h1>
+        @foreach ($cantante as $cantante_del_disco)
+        <h1>Discos de {{ $cantante_del_disco }}</h1>
+        @endforeach
         <div class="content">
-        @if ($message = Session::get('warning'))
-                <div class="alert">
-                    {{ $message }}
-                </div>
-            @endif
             <table style="width:100%">
                 <tr>
                     <th>NOMBRE</th>
                     <th>GENERO</th>
-                    <th>VER DISCOS</th>
                 </tr>
-                @foreach ($cantantes as $cantante)
+                @foreach ($discos as $disco)
                 <tr>
-                    <td>{{ $cantante->nombre }}</td>
-                    <td>{{ $cantante->tipo_voz }}</td>
-                    <td> 
-                        <a href="/disco-por-cantante/{!! $cantante->id !!}" class="button">
-                        Ver
-                        </a>                     
-                    </td>
+                    <td>{{ $disco->nombre }}</td>
+                    <td>{{ $disco->genero }}</td>
                 </tr>
                 @endforeach
             </table>           

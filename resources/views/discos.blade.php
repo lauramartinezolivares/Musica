@@ -5,16 +5,26 @@
 <title>Música</title>
 <link rel="stylesheet" type="text/css" href="{{ asset('css/discos_cantantes.css') }}">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
+    <a href="/" class="button btn-home"><i class="fa fa-home"></i></a>
     <div class="discos">
         <h1>DISCOS</h1>
+        <a href="/añadir-disco" class="button btn-add"><i class="material-icons" style="font-size:36px">create_new_folder</i></a>  
+        <br>   
+        @if ($message = Session::get('warning'))
+            <div class="alert">
+                {{ $message }}
+            </div>
+        @endif
+        <br>
         <div class="content">
             <table style="width:100%">
                 <tr>
                     <th>NOMBRE</th>
                     <th>GENERO</th>
-                    <th>EDITAR</th>
+                    <th>EDITAR O ELIMINAR</th>
                 </tr>
                 @foreach ($discos as $disco)
                 <tr>
@@ -27,7 +37,6 @@
                 </tr>
                 @endforeach
             </table>    
-            <button class="btn-add" type="button">Añadir disco</button>        
         </div>
     </div>
 </body>

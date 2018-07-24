@@ -10,12 +10,14 @@
     <a href="/" class="button btn-home"><i class="fa fa-home"></i></a>
     <a href="/discos" class="button btn-home"><i class="fa fa-backward"></i></a>
     <div class="discos">
-        <h1>EDITAR DISCO</h1>
+        <h1>AÑADIR UN NUEVO DISCO</h1>
         <div class="content">
-        <form method="post" action="{{ action('DiscosController@update', $discos->id)}}">
+        <form method="post" action="{{ action('DiscosController@store')}}">
             @csrf
                 <span class="form-label">Nombre</span>
                 <input type="text" name="nombre" value="{{$discos->nombre}}"><br>
+                <span class="form-label">Cantante</span>
+                <input type="text" name="cantante_nombre" value="{{$discos->cantante_nombre}}"><br>
                 <span class="form-label">Genero</span>
                 <input type="text" name="genero" value="{{$discos->genero}}">
                 <br>

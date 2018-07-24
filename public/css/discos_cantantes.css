@@ -1,35 +1,51 @@
+/*
+*Estilos de las vista de discos y cantantes
+*/
 body{
-    background-image: url('https://images.pexels.com/photos/9137/night-vintage-music-bokeh.jpg?auto=compress&cs=tinysrgb&h=750&w=1260');
+    background-image: url('https://images.pexels.com/photos/1791/vintage-music-white-sound.jpg?auto=compress&cs=tinysrgb&h=750&w=1260');
     background-size: cover;
 }
 
 h1{
-    color: yellow;
+    color: #000066;
     font-size: 60px;
     font-family: Arial, Helvetica, sans-serif;
 }
+
 .discos, .cantantes{
     margin: auto;
-    padding: 10px;
+    padding: 30px;
     text-align: center;
     width: 50%;
 }
-.content{
-    background-color: whitesmoke;
-}
+
 table, th, td {
+    background-color: #ccccff;
     border: 1px solid rgb(185, 185, 185);
     border-collapse: collapse;
     padding: 15px;
     text-align: left;
     font-family: Arial, Helvetica, sans-serif;
 }
-
 .editar_eliminar{
     border: none;
-    background-color: whitesmoke;
 }
-
+.btn-home{
+    border: none;
+    border-radius: 10%;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    font-size: 16px;
+    background-color: #000066
+}
+/* 
+*Estilo del formulario de añadir disco
+*/
 input{
     width: 60%;
     padding: 12px 20px;
@@ -46,8 +62,8 @@ input{
     padding-right: 10px;
 }
 .btn-submit{
-    width: 50%;
-    background-color: rgb(112, 100, 77);
+    width: 70%;
+    background-color:#8080ff;
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
@@ -55,14 +71,17 @@ input{
     border-radius: 4px;
     cursor: pointer;
 }
-
-.btn-add{
-    width: 30%;
-    background-color: rgb(112, 100, 77);
+/*
+* Estilo de errores
+*/
+.alert{
+    margin: auto;
+    width: 50%;
+    border: 1px solid red;
+    border-radius: 15px;
+    padding: 12px 20px;
+    background-color: rgb(241, 129, 129);
     color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
 }

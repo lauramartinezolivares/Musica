@@ -10,8 +10,8 @@
     <div class="center">
         <div class="center">
             <h1>MÚSICA</h1>
-            <a href="{{ route('discos') }}" class="button">Discos</a>
-            <a href="{{ route('cantantes') }}" class="button">Cantantes</a>
+            <a href="{{ route('discos') }}" class="button btn">DISCOS</a>
+            <a href="{{ route('cantantes') }}" class="button btn">CANTANTES</a>
         </div>
     </div>
 
