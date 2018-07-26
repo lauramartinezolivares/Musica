@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-07-2018 a las 22:52:05
+-- Tiempo de generación: 27-07-2018 a las 00:10:07
 -- Versión del servidor: 10.1.34-MariaDB
 -- Versión de PHP: 7.2.7
 
@@ -41,11 +41,14 @@ CREATE TABLE `cantantes` (
 --
 
 INSERT INTO `cantantes` (`id`, `nombre`, `tipo_voz`, `created_at`, `updated_at`) VALUES
-(1, 'Rihanna', 'Mezzosoprano', NULL, NULL),
-(2, 'Beyoncé', 'Mezzosoprano lírica', NULL, NULL),
+(2, 'Beyoncé', 'Mezzosoprano lírica', NULL, '2018-07-26 20:05:49'),
 (4, 'Taylor Swift', 'Soprano', NULL, NULL),
 (5, 'Ed Sheeran', 'Tenor', NULL, NULL),
-(6, 'Bruno Mars', 'Baritono', NULL, NULL);
+(6, 'Bruno Mars', 'Baritono', NULL, NULL),
+(7, 'Marea', 'Generica', '2018-07-26 17:18:14', '2018-07-26 17:18:14'),
+(8, 'Linkin Park', 'Generica', '2018-07-26 17:21:10', '2018-07-26 17:21:10'),
+(9, 'Iron maiden', 'Generica', '2018-07-26 17:42:49', '2018-07-26 17:42:49'),
+(10, 'Evanescence', 'Generica', '2018-07-26 17:52:59', '2018-07-26 17:52:59');
 
 -- --------------------------------------------------------
 
@@ -67,11 +70,14 @@ CREATE TABLE `discos` (
 --
 
 INSERT INTO `discos` (`id`, `cantantes_id`, `nombre`, `genero`, `created_at`, `updated_at`) VALUES
-(2, 2, 'Lemonade', 'Pop, Rock, Blues', NULL, '2018-07-24 17:51:27'),
-(3, 4, 'Reputation', 'Electropop, indie, pop', NULL, '2018-07-23 20:05:49'),
-(4, 1, 'Anti', 'Hip hop music, Contemporary R&B', '2018-07-24 14:45:27', '2018-07-24 17:51:15'),
+(3, 4, 'Reputations', 'Electropop, indie, pop', NULL, '2018-07-26 20:04:00'),
 (6, 5, 'Divide', 'Pop music', '2018-07-24 17:33:38', '2018-07-24 17:33:38'),
-(7, 1, 'Unapologetic', 'Pop music, Rhythm and blues, Contemporary R&B', '2018-07-24 17:52:16', '2018-07-24 17:52:16');
+(8, 7, 'La luna me sabe a poco', 'Rock', '2018-07-26 17:19:01', '2018-07-26 17:19:01'),
+(9, 8, 'Meteora', 'Alternative rock, Nu metal, Alternative metal', '2018-07-26 17:21:10', '2018-07-26 17:21:10'),
+(10, 9, 'Killers', 'Heavy metal', '2018-07-26 17:50:22', '2018-07-26 17:50:22'),
+(11, 10, 'Fallen', 'Hard Rock, Rock', '2018-07-26 17:52:59', '2018-07-26 17:52:59'),
+(13, 7, 'Patera', 'Rock', '2018-07-26 20:05:38', '2018-07-26 20:05:38'),
+(14, 2, 'Lemonade', 'Alternative R&B', '2018-07-26 20:06:40', '2018-07-26 20:06:40');
 
 -- --------------------------------------------------------
 
@@ -124,13 +130,13 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT de la tabla `cantantes`
 --
 ALTER TABLE `cantantes`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `discos`
 --
 ALTER TABLE `discos`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de la tabla `migrations`

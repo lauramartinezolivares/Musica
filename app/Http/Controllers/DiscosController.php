@@ -43,12 +43,11 @@ class DiscosController extends Controller
     public function store(Request $request)
     {
         $cantante_nombre = $request->get('cantante_nombre');
-        $cantante_id = DB::table('cantantes')->where('nombre', $cantante_nombre)->first();
-       
-        if($cantante_id === null){
-            return redirect('discos')->with('warning','Este cantante no figura en la base de datos');
-        }
-    
+
+        $cantante_id = $this->comprobar_cantante($cantante_nombre);
+
+        var_dump($cantante_id);
+
         $disco = new \App\Discos;
         $disco->cantantes_id=$cantante_id->id;
         $disco->nombre=$request->get('nombre');
@@ -57,7 +56,31 @@ class DiscosController extends Controller
 
         return redirect('discos');
     }
+       /**
+     * Display the specified resource.
+     *
+     * @param  $cantante  $nombre
+     * @return \Illuminate\Http\Response
+     */
+    public function comprobar_cantante($cantante_nombre){
+        
+        $cantante_id = DB::table('cantantes')->where('nombre', $cantante_nombre)->first();
 
+        if($cantante_id === null){
+           
+            $cantante = new \App\Cantantes;
+            $cantante->nombre=$cantante_nombre;
+            $cantante->tipo_voz=('Generica');
+            $cantante->save();
+
+            var_dump($cantante->id);
+
+            return $cantante;
+
+        } else {
+            return $cantante_id;
+        }
+    }
     /**
      * Display the specified resource.
      *

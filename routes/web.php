@@ -25,4 +25,7 @@ Route::post('/store-disc', array('as' => 'store-discos', 'uses' => 'DiscosContro
 
 //Ruta del controlador de cantantes
 Route::get('/cantantes', array('as' => 'cantantes', 'uses' => 'CantanteController@index'));
+Route::get('/editar-cantante/{id}', array('as' => 'editar-cantante', 'uses' => 'CantanteController@edit'));
+Route::post('/update-cantante/{id}', array('as' => 'update-cantante', 'uses' => 'CantanteController@update'));
+Route::get('/delete-cantante/{id}', array('as' => 'delete-cantante', 'uses' => 'CantanteController@destroy'));
 

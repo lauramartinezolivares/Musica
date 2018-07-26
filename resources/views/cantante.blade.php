@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <title>Música</title>
 <link rel="stylesheet" type="text/css" href="{{ asset('css/discos_cantantes.css') }}">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
@@ -19,7 +20,7 @@
             <table style="width:100%">
                 <tr>
                     <th>NOMBRE</th>
-                    <th>GENERO</th>
+                    <th>TIPO DE VOZ</th>
                     <th>VER DISCOS</th>
                 </tr>
                 @foreach ($cantantes as $cantante)
@@ -27,9 +28,15 @@
                     <td>{{ $cantante->nombre }}</td>
                     <td>{{ $cantante->tipo_voz }}</td>
                     <td> 
-                        <a href="/disco-por-cantante/{!! $cantante->id !!}" class="button">
-                        Ver
-                        </a>                     
+                        <a href="/disco-por-cantante/{!! $cantante->id !!}" class="button editar_eliminar">
+                        <i class="material-icons" style="font-size:36px">remove_red_eye</i>
+                        </a>    
+                        <a href="/editar-cantante/{!! $cantante->id !!}" class="button editar_eliminar">
+                        <i class="material-icons">&#xe3c9;</i>
+                        </a>   
+                        <!--<a href="/delete-cantante/{!! $cantante->id !!}" class="button editar_eliminar">
+                        <i class="material-icons">&#xe872;</i>
+                        </a>-->
                     </td>
                 </tr>
                 @endforeach

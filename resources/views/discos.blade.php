@@ -13,11 +13,6 @@
         <h1>DISCOS</h1>
         <a href="/añadir-disco" class="button btn-add"><i class="material-icons" style="font-size:36px">create_new_folder</i></a>  
         <br>   
-        @if ($message = Session::get('warning'))
-            <div class="alert">
-                {{ $message }}
-            </div>
-        @endif
         <br>
         <div class="content">
             <table style="width:100%">
